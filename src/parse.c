@@ -20,11 +20,11 @@ int is_valid_nb(char *str)
     }
     return (1);
 }
-int check_and_parse_arguments(char **argv, t_stack **a)
+int check_and_parse_arguments(int argc, char **argv, t_stack **a)
 {
     int i;
-    i = 0;
-    while (argv[i])
+    i = 1;
+    while (i < argc)
     {
         if (is_valid_nb(argv[i]))
         {
@@ -35,6 +35,7 @@ int check_and_parse_arguments(char **argv, t_stack **a)
         }
         else
             return (0);
+        i++;
     }
 }
 

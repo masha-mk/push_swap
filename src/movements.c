@@ -1,0 +1,1 @@
+//Functions with accepted movements (sa, sb, rr etc)

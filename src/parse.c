@@ -29,6 +29,7 @@ int check_and_parse_arguments(int argc, char **argv, t_stack **a)
         if (is_valid_nb(argv[i]))
         {
             //split arguments
+            if (ft_strlen())
             //convertir chaque argument avec atoi
             // verif doublons
             //remplir la pile a

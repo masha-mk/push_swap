@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
 	t_stack *a = NULL;
 	t_stack *b = NULL;
@@ -18,4 +18,4 @@ int main(int argc, char **argv)
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
-}
+}*/

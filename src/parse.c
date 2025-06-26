@@ -23,13 +23,22 @@ int is_valid_nb(char *str)
 int check_and_parse_arguments(int argc, char **argv, t_stack **a)
 {
     int i;
+    int j;
+    char **arr;
+    int nb;
+
     i = 1;
     while (i < argc)
     {
         if (is_valid_nb(argv[i]))
         {
             //split arguments
-            if (ft_strlen())
+            if (!is_valid_nb(argv[i]))
+                    return (0);
+            arr = ft_split(argv[i]);
+            if (!arr)
+                return (NULL);
+            j = 0;
             //convertir chaque argument avec atoi
             // verif doublons
             //remplir la pile a

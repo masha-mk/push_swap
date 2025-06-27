@@ -24,6 +24,7 @@ typedef struct s_stack
 }  t_stack;
 
 // MOVEMENTS
+void sa(t_stack *stack);
 
 
 // PARSING
@@ -33,6 +34,15 @@ typedef struct s_stack
 
 
 // UTILS
+int check_arguments(int argc, char **argv, t_stack *a);
+//Split Functions
+char **ft_split(char *str);
+void	free_split(char **str);
+
+int ft_atoi(char *str);
+void free_stack(t_node *head);
+int ft_atoi_check(long long res, int sign);
+
 
 
 #endif

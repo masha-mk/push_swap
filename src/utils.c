@@ -36,3 +36,12 @@ int ft_atoi_check(long long res, int sign)
     return (0);
   return (1);
 }
+
+int ft_strlen(char *str)
+{
+    int i;
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}

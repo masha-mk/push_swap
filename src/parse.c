@@ -10,7 +10,7 @@ int is_valid_nb(char *str)
     if ((str[0] == '-' || str[0] == '+'))
             i++;
     if (str[i] == '\0')
-        return (0);
+        return (0);  
     while (str[i])
     {
         if (str[i] >= '0' && str[i] <= '9')
@@ -20,7 +20,43 @@ int is_valid_nb(char *str)
     }
     return (1);
 }
-int check_and_parse_arguments(int argc, char **argv, t_stack **a)
+
+int is_duplicate(t_stack *stack, int nb)
+{
+    t_node *current;
+
+    current = stack->a;
+    while (current)
+    {
+        if (current->value == nb)
+            return (1);
+        current = current->next;
+    }
+    return (0);
+}
+
+int add_to_stack(t_stack *stack, int nb)
+{
+    t_node *new;
+    t_node *current;
+    
+    new = malloc(sizeof(t_node));
+    if (!new)
+        return (0);
+    new->value = nb;
+    new->next = NULL;
+    if (stack->a == NULL)
+    {
+        stack->a = new;
+        return (1);
+    }
+    current = stack->a;
+    while (current->next)
+        current = current->next;
+    current->next = new;
+    return (1);
+}
+int check_arguments(int argc, char **argv, t_stack *a)
 {
     int i;
     int j;
@@ -30,39 +66,43 @@ int check_and_parse_arguments(int argc, char **argv, t_stack **a)
     i = 1;
     while (i < argc)
     {
-        if (is_valid_nb(argv[i]))
-        {
-            //split arguments
-            if (!is_valid_nb(argv[i]))
-                    return (0);
-            arr = ft_split(argv[i]);
-            if (!arr)
-                return (NULL);
-            j = 0;
-            //convertir chaque argument avec atoi
-            // verif doublons
-            //remplir la pile a
-        }
-        else
+        arr = ft_split(argv[i]);
+        if (!arr)
             return (0);
+        j = 0;
+        while (arr[j])
+        {
+            if (!is_valid_nb(arr[j]))
+                return(free_split(arr), 0);
+            nb = ft_atoi(arr[j]);
+            if (is_duplicate(a, nb) || !add_to_stack(a, nb))
+                return(free_split(arr), 0);
+            j++;
+        }
+        free_split(arr);
         i++;
     }
+    return (1);
 }
 
 // int main(int argc, char **argv)
 // { 
-//     // MAIN CHECK NUMBER
-//     int i;
-//     i = 1;
-//     int verif;
+//   t_stack stack;
 
-//     while (i < argc)
-//     {
-//         verif = is_number(argv[i]);
-//         if (verif)
-//             printf("argv[%d] = \"%s\" -> OK\n", i, argv[i]);
-//         else
-//             printf("argv[%d] = \"%s\" -> NO\n", i, argv[i]);
-//         i++;
-//     }
+//   stack.a = NULL;
+//   stack.b = NULL;
+
+//   if (!check_arguments(argc, argv, &stack))
+//   {
+//     write(2, "Error\n", 6);
+//     return (1);
+//   }
+//   t_node *current = stack.a;
+//   while (current)
+//   {
+//     printf("%d\n", current->value);
+//     current = current->next;
+//   }
+//    free_stack(stack.a);
+//   return (0);
 // }

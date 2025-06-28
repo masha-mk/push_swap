@@ -13,6 +13,7 @@
 typedef struct s_node
 {
     int value;
+    int index;
     struct s_node *next;
 } t_node;
 
@@ -25,6 +26,8 @@ typedef struct s_stack
 
 // MOVEMENTS
 void sa(t_stack *stack);
+void sb(t_stack *stack);
+void ss(t_stack *stack);
 
 
 // PARSING
@@ -32,16 +35,15 @@ void sa(t_stack *stack);
 
 // ALGO
 
-
 // UTILS
 int check_arguments(int argc, char **argv, t_stack *a);
-//Split Functions
 char **ft_split(char *str);
-void	free_split(char **str);
-
 int ft_atoi(char *str);
+
+//Free
+void	free_split(char **str);
 void free_stack(t_node *head);
-int ft_atoi_check(long long res, int sign);
+
 
 
 

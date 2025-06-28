@@ -1,16 +1,5 @@
 #include "../includes/push_swap.h"
 
-void free_stack(t_node *head)
-{
-	t_node *tmp;
-
-	while (head)
-	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
-	}
-}
 int main(int argc, char **argv)
 {
 	t_stack stack;
@@ -27,7 +16,8 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		sort_numbers(&a, &b);
+		//sort_numbers(&a, &b);
+		
 		// sa(&stack);
 		// current = stack.a;
 		// while (current)

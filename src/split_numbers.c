@@ -1,19 +1,5 @@
 #include "../includes/push_swap.h"
 
-void	free_split(char **str)
-{
-	int i;
-
-	i = 0;
-    if (!str)
-        return;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free (str);
-}
 static int is_sep(char c)
 {
     return (c == ' ' || c == '\t');
@@ -37,7 +23,7 @@ static int	count_words(char const *s)
 	return (count);
 }
 
-char *word_dup(char *str, int start, int end)
+static char *word_dup(char *str, int start, int end)
 {
     int i;
     char *new;

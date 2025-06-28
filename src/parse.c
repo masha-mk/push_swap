@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-int is_valid_nb(char *str)
+static int is_valid_nb(char *str)
 {
     int i;
     
@@ -21,7 +21,7 @@ int is_valid_nb(char *str)
     return (1);
 }
 
-int is_duplicate(t_stack *stack, int nb)
+static int is_duplicate(t_stack *stack, int nb)
 {
     t_node *current;
 
@@ -35,7 +35,7 @@ int is_duplicate(t_stack *stack, int nb)
     return (0);
 }
 
-int add_to_stack(t_stack *stack, int nb)
+static int add_to_stack(t_stack *stack, int nb)
 {
     t_node *new;
     t_node *current;
@@ -44,6 +44,7 @@ int add_to_stack(t_stack *stack, int nb)
     if (!new)
         return (0);
     new->value = nb;
+    new->index = -1;
     new->next = NULL;
     if (stack->a == NULL)
     {

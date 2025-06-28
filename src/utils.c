@@ -28,20 +28,11 @@ int ft_atoi(char *str)
     return (0);
 }
 
-int ft_atoi_check(long long res, int sign)
+static int ft_atoi_check(long long res, int sign)
 {
   if (sign == 1 && res > 2147483647)
     return (0);
   if (sign == -1 && res > 2147483648)
     return (0);
   return (1);
-}
-
-int ft_strlen(char *str)
-{
-    int i;
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
 }

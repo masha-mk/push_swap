@@ -36,3 +36,14 @@ static int ft_atoi_check(long long res, int sign)
     return (0);
   return (1);
 }
+void ft_putstr(char *str)
+{
+  int i;
+  i = 0;
+
+  while (str[i])
+  {
+    write(1, &str[i], 1);
+    i++;
+  }
+}

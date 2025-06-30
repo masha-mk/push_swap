@@ -86,6 +86,29 @@ int check_arguments(int argc, char **argv, t_stack *a)
     return (1);
 }
 
+void assign_indexes(t_node *head)
+{
+    t_node *current;
+    t_node *compare;
+    int index;
+
+    current = head;
+    while (current)
+    {
+        index = 0;
+        compare = head;
+        while (compare)
+        {
+            if (compare->value < current->value)
+                index++;
+            compare = compare->next;
+        }
+        current->index = index;
+        current = current->next;
+    }
+
+}
+
 // int main(int argc, char **argv)
 // { 
 //   t_stack stack;

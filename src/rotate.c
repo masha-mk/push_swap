@@ -18,15 +18,18 @@ static void rotate(t_node **head)
 void ra(t_stack *stack)
 {
     rotate(&stack->a);
+    ft_putstr("ra\n");
 }
 
 void rb(t_stack *stack)
 {
     rotate(&stack->b);
+    ft_putstr("rb\n");
 }
 
 void rr(t_stack *stack)
 {
     ra(stack);
     rb(stack);
+    ft_putstr("rr\n");
 }

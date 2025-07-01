@@ -13,8 +13,10 @@ static void push(t_node **from, t_node **to)
 void pa(t_stack *stack)
 {
     push(&stack->b, &stack->a);
+    ft_putstr("pa\n");
 }
 void pb(t_stack *stack)
 {
     push(&stack->a, &stack->b);
+    ft_putstr("pb\n");
 }

@@ -21,11 +21,11 @@ void sort_stack(t_stack *stack)
 	if (size == 2)
 		sa(stack);
 	else if (size == 3)
-		sort_three(stack);
+		tiny_sort(stack);
 	else if (size <= 5)
-	 	sort_five(stack);
-	// else
-	// 	sort_numbers(stack);
+		small_sort(stack);
+	else
+		big_sort(stack);
 }
 int stack_size(t_node *head)
 {
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 		return (0);
 	if (!check_arguments(argc, argv, &stack))
 	{
-		write(2, "Error", 5);
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	assign_indexes(stack.a);

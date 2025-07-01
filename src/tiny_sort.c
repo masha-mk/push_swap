@@ -12,12 +12,40 @@
 //     }
 //     return (index);
 // }
-
-void push_smallest_to_b(t_stack *stack)
+int find_smallest_index(t_stack *stack)
 {
     t_node *temp;
+    int min_index;
+    int pos;
+    int i;
+
+    pos = 0;
+    i = 0;
+    temp = stack->a;
+    if (!temp)
+        return (0);
+    min_index = temp->index;
+    while (temp)
+    {
+        if (temp->index < min_index)
+        {
+            min_index = temp->index;
+            pos = i;
+        }
+        temp = temp->next;
+        i++;
+    }
+    //printf("smallest at pos: %d\n", pos);
+    return (pos);
 }
-void sort_three(t_stack *stack)
+void push_smallest_to_b(t_stack *stack)
+{
+    int pos;
+    
+    pos = find_smallest_index(stack);
+    push_to_b(stack, pos);
+}
+void tiny_sort(t_stack *stack)
 {
     int a = stack->a->index;
     int b = stack->a->next->index;
@@ -39,9 +67,8 @@ void sort_three(t_stack *stack)
     }
     else if (a < b && b > c && a > c)
         rra(stack);
-    printf("index a: %d, b: %d, c: %d\n", a, b, c);
 }
-void sort_five(t_stack *stack)
+void small_sort(t_stack *stack)
 {
     int size;
     int times;
@@ -51,9 +78,8 @@ void sort_five(t_stack *stack)
 
     while (times--)
         push_smallest_to_b(stack);
-    sort_three(stack);
+    tiny_sort(stack);
     while (stack->b)
         pa(stack);
 }
-//ecrire une fonction push to b et return to a
 

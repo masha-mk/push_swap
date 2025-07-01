@@ -39,7 +39,6 @@ void rrr(t_stack *stack);
 void pa(t_stack *stack);
 void pb(t_stack *stack);
 
-
     // PARSING
 void assign_indexes(t_node *head);
 int check_arguments(int argc, char **argv, t_stack *a);
@@ -48,11 +47,6 @@ void tiny_sort(t_stack *stack);
 void small_sort(t_stack *stack);
 void big_sort(t_stack *stack);
     //ALGO UTILS
-int has_chunk_values(t_node *a, int min, int max);
-int get_chunk_pos(t_node *a, int min, int max);
-int get_b_insert_pos(t_node *b, int index);
-void rotate_to_top_b(t_stack *s, int pos);
-int find_max_position(t_node *b);
 
     // UTILS
 int check_arguments(int argc, char **argv, t_stack *a);

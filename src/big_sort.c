@@ -11,16 +11,13 @@ void big_sort(t_stack *stack)
 {
 	int size;
 	int chunk_size;
-	int i;
+	int i;  
 
 	size = stack_size(stack->a);
 	chunk_size = get_chunk_size(size);
 	i = 0;
-	while (i < size)
-	{
-		push_chunk_to_b(stack, i, i + chunk_size - 1);
-		i = i + chunk_size;
-	}
+    while (stack->a)
+	    push_cheapest_to_b(stack);
 	push_back_to_a(stack);
 }
 

@@ -1,5 +1,15 @@
 #include "../includes/push_swap.h"
 
+// void print_stack(t_node *first, char name)
+// {
+//     printf("Pile %c : ", name);
+//     while (first)
+//     {
+//         printf("%d ", first->value);
+//         first = first->next;
+//     }
+//     printf("\n");
+// }
 int sorted(t_stack *stack)
 {
 	t_node *first;
@@ -55,46 +65,14 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	assign_indexes(stack.a);
+	// print_stack(stack.a, 'A');
 	if (sorted(&stack))
 		return (0);
 	else
 		sort_stack(&stack);
+	// print_stack(stack.a, 'A');
+	// print_stack(stack.b, 'B');
 	free_stack(stack.a);
 	free_stack(stack.b);
 	return (0);
 }
-// int main(int argc, char **argv)
-// {
-// 	t_stack stack;
-// 	// t_node *current;
-
-// 	stack.a = NULL;
-// 	stack.b = NULL;
-
-// 	if (argc < 2)
-// 		return (1);
-// 	if (!check_arguments(argc, argv, &stack))
-// 	{
-// 		write(2, "Error", 6);
-// 	}
-// 	else
-// 	{
-// 		if (argv == 3)
-// 			sa(stack);
-// 		else if (argv == 4)
-			
-// 		//sort_numbers(&a, &b);
-		
-// 		// sa(&stack);
-// 		// current = stack.a;
-// 		// while (current)
-// 		// {
-// 		// 	printf("%d\n", current->value);
-// 		// 	current = current->next;
-// 		// }
-// 	}
-// 		//sort_numbers(&a, &b);
-// 	free_stack(stack.a);
-// 	//free_stack(&b);
-// 	return (0);
-// }

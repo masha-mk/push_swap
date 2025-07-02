@@ -51,7 +51,7 @@ char **ft_split(char *str)
 
     i = 0;
     j = 0;
-    res = (char**)malloc(sizeof(char*) * count_words(str) + 1);
+    res = (char**)malloc(sizeof(char*) * (count_words(str) + 1));
     if (!res)
         return (NULL);
     while (str[i])

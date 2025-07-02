@@ -104,7 +104,7 @@ int check_arguments(int argc, char **argv, t_stack *a)
             if (!is_valid_nb(arr[j]))
                 return(free_split(arr), 0);
             nb = ft_atoi(arr[j]);
-            if (is_duplicate(a, nb) || !add_to_stack(a, nb))
+            if ((nb == 0 && arr[j][0] != '0') || is_duplicate(a, nb) || !add_to_stack(a, nb))
                 return(free_split(arr), 0);
             j++;
         }

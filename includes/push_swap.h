@@ -62,5 +62,7 @@ void push_to_b(t_stack *stack, int pos);
 void	free_split(char **str);
 void free_stack(t_node *head);
 
+void print_stack(t_node *first, char name);
+
 
 #endif

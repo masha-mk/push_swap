@@ -24,20 +24,20 @@ int get_chunk_pos(t_node *a, int min, int max)
 	}
 	return (-1);
 }
-int get_b_insert_pos(t_node *b, int index)
-{
-	int pos;
+// int get_b_insert_pos(t_node *b, int index)
+// {
+// 	int pos;
 
-	pos = 0;
-	while (b)
-	{
-		if (index > b->index)
-			break ;
-		pos++;
-		b = b->next;
-	}
-	return (pos);
-}
+// 	pos = 0;
+// 	while (b)
+// 	{
+// 		if (index > b->index)
+// 			break ;
+// 		pos++;
+// 		b = b->next;
+// 	}
+// 	return (pos);
+// }
 void rotate_to_top_b(t_stack *s, int pos)
 {
 	int size;

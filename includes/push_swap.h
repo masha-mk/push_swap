@@ -47,7 +47,10 @@ void tiny_sort(t_stack *stack);
 void small_sort(t_stack *stack);
 void big_sort(t_stack *stack);
     //ALGO UTILS
-
+int has_chunk_values(t_node *a, int min, int max);
+int get_chunk_pos(t_node *a, int min, int max);
+void rotate_to_top_b(t_stack *s, int pos);
+int find_max_position(t_node *b);
     // UTILS
 int check_arguments(int argc, char **argv, t_stack *a);
 int stack_size (t_node *head);

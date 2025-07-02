@@ -7,6 +7,10 @@ static int get_chunk_size(int size)
     else
         return (30);
 }
+void push_chunk_to_b(t_stack *stack, int min, int max)
+{
+	
+}
 void big_sort(t_stack *stack)
 {
 	int size;
@@ -16,8 +20,11 @@ void big_sort(t_stack *stack)
 	size = stack_size(stack->a);
 	chunk_size = get_chunk_size(size);
 	i = 0;
-    while (stack->a)
-	    push_cheapest_to_b(stack);
+    while (i < size)
+	{
+		push_chunk_to_b(stack, i, i + chunk_size - 1);
+		i = i + chunk_size;
+	}
 	push_back_to_a(stack);
 }
 

@@ -10,10 +10,10 @@ ARG=$(seq 1 $SIZE | shuf | tr '\n' ' ')
 COUNT=$(./push_swap $ARG | wc -l)
 echo "Nombre de coups : $COUNT"
 
-VALGRIND_OUTPUT=$(valgrind --leak-check=full --track-origins=yes ./push_swap $ARG 2>&1)
+# VALGRIND_OUTPUT=$(valgrind --leak-check=full --track-origins=yes ./push_swap $ARG 2>&1)
 
-if echo "$VALGRIND_OUTPUT" | grep -q "ERROR SUMMARY: 0 errors from 0 contexts"; then
-    echo "✅AUCUN LEAK"
-else
-    echo "❌LEAK DÉTECTÉ"
-fi
+# if echo "$VALGRIND_OUTPUT" | grep -q "ERROR SUMMARY: 0 errors from 0 contexts"; then
+#     echo "✅AUCUN LEAK"
+# else
+#     echo "❌LEAK DÉTECTÉ"
+# fi

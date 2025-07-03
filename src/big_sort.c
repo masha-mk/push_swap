@@ -22,7 +22,7 @@ static void push_chunk_to_b(t_stack *stack, int min, int max)
 		i = pos;
 		while (i-- > 0)
 			tmp = tmp->next;
-		if (tmp->index < (min + max) / 2)
+		if (tmp->index >= (min + max) / 2)
 			push_to_b(stack, pos);
 		else
 		{

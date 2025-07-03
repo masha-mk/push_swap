@@ -1,33 +1,5 @@
 #include "../includes/push_swap.h"
 
-// void print_indexes(t_node *head)
-// {
-// 	while (head)
-// 	{
-// 		printf("%d ", head->index);
-// 		head = head->next;
-// 	}
-// 	printf("\n");
-// }
-// void print_stacks(t_stack *stack)
-// {
-// 	t_node *a = stack->a;
-// 	t_node *b = stack->b;
-
-// 	printf("📦 Pile A:\n");
-// 	while (a)
-// 	{
-// 		printf("Valeur: %d, Index: %d\n", a->value, a->index);
-// 		a = a->next;
-// 	}
-// 	printf("📦 Pile B:\n");
-// 	while (b)
-// 	{
-// 		printf("Valeur: %d, Index: %d\n", b->value, b->index);
-// 		b = b->next;
-// 	}
-// 	printf("--------------------------\n");
-// }
 static int is_valid_nb(char *str)
 {
     int i;

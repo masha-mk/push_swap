@@ -35,7 +35,6 @@ int find_smallest_index(t_stack *stack)
         temp = temp->next;
         i++;
     }
-    //printf("smallest at pos: %d\n", pos);
     return (pos);
 }
 void push_smallest_to_b(t_stack *stack)

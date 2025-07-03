@@ -6,7 +6,7 @@
 /*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 18:58:43 by mamakaro          #+#    #+#             */
-/*   Updated: 2025/07/03 18:58:51 by mamakaro         ###   ########.fr       */
+/*   Updated: 2025/07/03 20:11:05 by mamakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 # include <unistd.h>
 
 // STRUCTURES
+
+//Linked List
 typedef struct s_node
 {
 	int				value;
 	int				index;
 	struct s_node	*next;
 }					t_node;
-
+//Structure of nodes
 typedef struct s_stack
 {
 	t_node			*a;

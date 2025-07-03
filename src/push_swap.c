@@ -6,7 +6,7 @@
 /*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:55:40 by mamakaro          #+#    #+#             */
-/*   Updated: 2025/07/03 18:25:02 by mamakaro         ###   ########.fr       */
+/*   Updated: 2025/07/03 20:12:16 by mamakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	assign_indexes(stack.a);
-	// print_stack(stack.a, 'A');
 	if (sorted(&stack))
 		return (0);
 	else
 		sort_stack(&stack);
-	// print_stack(stack.a, 'A');
 	free_stack(stack.a);
 	free_stack(stack.b);
 	return (0);

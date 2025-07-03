@@ -35,11 +35,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 clean:
 	rm -rf $(OBJ_DIR)
-	@echo "$(YELLOW)clean: dossiers objets supprimés.$(RESET)"
+	@echo "$(GREEN_BOLD)clean: dossiers objets supprimés.$(RESET)"
 
 fclean: clean
 	rm -rf $(NAME)
-	@echo "$(YELLOW)fclean: executable supprimé.$(RESET)"
+	@echo "$(GREEN_BOLD)fclean: executable supprimé.$(RESET)"
 re: fclean all
 
 .PHONY: all clean fclean re

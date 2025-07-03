@@ -1,23 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/03 18:59:36 by mamakaro          #+#    #+#             */
+/*   Updated: 2025/07/03 19:03:29 by mamakaro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-static int get_chunk_size(int size)
+static int	get_chunk_size(int size)
 {
-    if (size <= 100)
-        return (20);
-    else
-        return (50);
+	if (size <= 20)
+		return (size);
+	else if (size <= 100)
+		return (20);
+	else
+		return (55);
 }
 
-
-static void push_chunk_to_b(t_stack *stack, int min, int max)
+static int	get_chunk_pos_filtered(t_node *a, int min, int max)
 {
-	while (has_chunk_values(stack->a, min, max))
-	{
-		int pos;
-		int i;
-		t_node *tmp;
+	int	pos;
 
-		pos = get_chunk_pos(stack->a, min, max);
+	pos = 0;
+	while (a)
+	{
+		if (a->index >= min && a->index <= max)
+			return (pos);
+		pos++;
+		a = a->next;
+	}
+	return (-1);
+}
+
+static void	push_chunk_to_b(t_stack *stack, int min, int max)
+{
+	int		pos;
+	int		i;
+	t_node	*tmp;
+
+	while (1)
+	{
+		pos = get_chunk_pos_filtered(stack->a, min, max);
+		if (pos == -1)
+			break ;
 		tmp = stack->a;
 		i = pos;
 		while (i-- > 0)
@@ -27,13 +57,14 @@ static void push_chunk_to_b(t_stack *stack, int min, int max)
 		else
 		{
 			push_to_b(stack, pos);
-			rb (stack);
+			rb(stack);
 		}
 	}
 }
-static void push_back_to_a(t_stack *stack)
+
+static void	push_back_to_a(t_stack *stack)
 {
-	int max_pos;
+	int	max_pos;
 
 	while (stack->b)
 	{
@@ -42,23 +73,20 @@ static void push_back_to_a(t_stack *stack)
 		pa(stack);
 	}
 }
-void big_sort(t_stack *stack)
+
+void	big_sort(t_stack *stack)
 {
-	int size;
-	int chunk_size;
-	int i;  
+	int	size;
+	int	chunk_size;
+	int	i;
 
 	size = stack_size(stack->a);
 	chunk_size = get_chunk_size(size);
 	i = 0;
-    while (i < size)
+	while (i < size)
 	{
 		push_chunk_to_b(stack, i, i + chunk_size - 1);
 		i = i + chunk_size;
 	}
 	push_back_to_a(stack);
 }
-
-
-
-

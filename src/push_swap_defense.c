@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_defense.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:55:40 by mamakaro          #+#    #+#             */
-/*   Updated: 2025/07/03 18:25:02 by mamakaro         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:06:40 by mamakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void print_stack(t_node *first, char name)
-// {
-//     printf("Pile %c : ", name);
-//     while (first)
-//     {
-//         printf("%d ", first->value);
-//         first = first->next;
-//     }
-//     printf("\n");
-// }
 int	check_arguments(int argc, char **argv, t_stack *a)
 {
 	int	i;
@@ -94,12 +84,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	assign_indexes(stack.a);
-	// print_stack(stack.a, 'A');
 	if (sorted(&stack))
 		return (0);
 	else
 		sort_stack(&stack);
-	// print_stack(stack.a, 'A');
 	free_stack(stack.a);
 	free_stack(stack.b);
 	return (0);

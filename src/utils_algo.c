@@ -1,6 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_algo.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/03 19:00:20 by mamakaro          #+#    #+#             */
+/*   Updated: 2025/07/03 19:03:17 by mamakaro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-int has_chunk_values(t_node *a, int min, int max)
+void	push_to_b(t_stack *stack, int pos)
+{
+	int	size;
+
+	size = stack_size(stack->a);
+	if (pos <= size / 2)
+	{
+		while (pos-- > 0)
+			ra(stack);
+	}
+	else
+	{
+		pos = size - pos;
+		while (pos-- > 0)
+			rra(stack);
+	}
+	pb(stack);
+}
+
+int	has_chunk_values(t_node *a, int min, int max)
 {
 	while (a)
 	{
@@ -10,9 +41,10 @@ int has_chunk_values(t_node *a, int min, int max)
 	}
 	return (0);
 }
-int get_chunk_pos(t_node *a, int min, int max)
+
+int	get_chunk_pos(t_node *a, int min, int max)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (a)
@@ -24,24 +56,11 @@ int get_chunk_pos(t_node *a, int min, int max)
 	}
 	return (-1);
 }
-// int get_b_insert_pos(t_node *b, int index)
-// {
-// 	int pos;
 
-// 	pos = 0;
-// 	while (b)
-// 	{
-// 		if (index > b->index)
-// 			break ;
-// 		pos++;
-// 		b = b->next;
-// 	}
-// 	return (pos);
-// }
-void rotate_to_top_b(t_stack *s, int pos)
+void	rotate_to_top_b(t_stack *s, int pos)
 {
-	int size;
-	int i;
+	int	size;
+	int	i;
 
 	i = 0;
 	size = stack_size(s->b);
@@ -62,11 +81,12 @@ void rotate_to_top_b(t_stack *s, int pos)
 		}
 	}
 }
-int find_max_position(t_node *b)
+
+int	find_max_position(t_node *b)
 {
-	int max;
-	int max_pos;
-	int i;
+	int	max;
+	int	max_pos;
+	int	i;
 
 	if (!b)
 		return (0);

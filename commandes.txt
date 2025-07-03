@@ -1,0 +1,2 @@
+ARG=$(seq 1 100 | shuf | tr '\n' ' ')
+./push_swap $ARG | wc -l

@@ -6,7 +6,7 @@
 /*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 10:55:40 by mamakaro          #+#    #+#             */
-/*   Updated: 2025/07/03 20:12:16 by mamakaro         ###   ########.fr       */
+/*   Updated: 2025/07/04 09:37:10 by mamakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,11 @@ int	main(int argc, char **argv)
 	}
 	assign_indexes(stack.a);
 	if (sorted(&stack))
+	{
+		free_stack(stack.a);
+		free_stack(stack.b);
 		return (0);
+	}
 	else
 		sort_stack(&stack);
 	free_stack(stack.a);

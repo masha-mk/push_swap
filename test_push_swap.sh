@@ -15,7 +15,7 @@ fi
 
 # Test 2 : Doublon
 echo -n "Test 2 (doublon) : "
-OUTPUT=$(./push_swap 1 2 3 2 4 5)
+OUTPUT=$(./push_swap 1 2 3 2 4 5 2>&1)
 if echo "$OUTPUT" | grep -q "Error"; then
     echo "✅"
 else
@@ -24,7 +24,7 @@ fi
 
 # Test 3 : Valeur > INT_MAX
 echo -n "Test 3 (supérieur à INT_MAX) : "
-OUTPUT=$(./push_swap 1 2 2147483648)
+OUTPUT=$(./push_swap 1 2 2147483648 2>&1)
 if echo "$OUTPUT" | grep -q "Error"; then
     echo "✅"
 else
@@ -42,7 +42,7 @@ fi
 
 # === TEST DE TRI AVEC $SIZE ÉLÉMENTS ===
 
-SIZE=500
+SIZE=$1
 echo
 echo "=== TEST DE TRI AVEC $SIZE ÉLÉMENTS ==="
 
@@ -57,10 +57,10 @@ echo "Nombre de coups : $COUNT"
 # Décommenter cette section pour tester les fuites mémoire avec Valgrind
 # echo
 # echo "=== TEST VALGRIND ==="
-# VALGRIND_OUTPUT=$(valgrind --leak-check=full --track-origins=yes ./push_swap $ARG 2>&1)
+VALGRIND_OUTPUT=$(valgrind --leak-check=full --track-origins=yes ./push_swap $ARG 2>&1)
 
-# if echo "$VALGRIND_OUTPUT" | grep -q "ERROR SUMMARY: 0 errors from 0 contexts"; then
-#     echo "✅ AUCUN LEAK"
-# else
-#     echo "❌ LEAK DÉTECTÉ"
-# fi
+if echo "$VALGRIND_OUTPUT" | grep -q "All heap blocks were freed"; then
+    echo "✅ AUCUN LEAK"
+else
+    echo "❌ LEAK DÉTECTÉ"
+fi

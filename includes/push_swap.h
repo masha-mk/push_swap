@@ -6,7 +6,7 @@
 /*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 18:58:43 by mamakaro          #+#    #+#             */
-/*   Updated: 2025/07/03 20:11:05 by mamakaro         ###   ########.fr       */
+/*   Updated: 2025/07/04 10:06:37 by mamakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void				tiny_sort(t_stack *stack);
 void				small_sort(t_stack *stack);
 void				big_sort(t_stack *stack);
 // ALGO UTILS
-int					has_chunk_values(t_node *a, int min, int max);
 int					get_chunk_pos(t_node *a, int min, int max);
 void				rotate_to_top_b(t_stack *s, int pos);
 int					find_max_position(t_node *b);

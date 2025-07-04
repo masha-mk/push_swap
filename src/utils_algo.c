@@ -6,7 +6,7 @@
 /*   By: mamakaro <mamakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 19:00:20 by mamakaro          #+#    #+#             */
-/*   Updated: 2025/07/03 19:03:17 by mamakaro         ###   ########.fr       */
+/*   Updated: 2025/07/04 10:06:56 by mamakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,6 @@ void	push_to_b(t_stack *stack, int pos)
 			rra(stack);
 	}
 	pb(stack);
-}
-
-int	has_chunk_values(t_node *a, int min, int max)
-{
-	while (a)
-	{
-		if (a->index >= min && a->index <= max)
-			return (1);
-		a = a->next;
-	}
-	return (0);
 }
 
 int	get_chunk_pos(t_node *a, int min, int max)
